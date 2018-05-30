@@ -76,7 +76,8 @@ class ImgurPlayTests: XCTestCase {
         dataDict["datetime"] = datetime
         dataDict["description"] = nil
         
-        let imgurImage = createImgurImageEntry(imageDict: dataDict)
+        let imagesModelHelper = ImagesModelHelper()
+        let imgurImage = imagesModelHelper.createImgurImageEntry(imageDict: dataDict)
         
         var testPassed = false
         if imgurImage.link == link && imgurImage.name == name && imgurImage.title == title && imgurImage.type == type && imgurImage.deletehash == deletehash && imgurImage.size == size && imgurImage.datetime == datetime && imgurImage.description == description {
@@ -103,8 +104,9 @@ class ImgurPlayTests: XCTestCase {
         dictResponse["data"] = array
         
         let vc = UIViewController()
+        let imagesModelHelper = ImagesModelHelper()
         
-        let (_, validation) = validateImageListResponse(dictResponse, vc: vc)
+        let (_, validation) = imagesModelHelper.validateImageListResponse(dictResponse, vc: vc)
         
         XCTAssert(validation == .Success, "Input is not a dictionary containing an array of dictionaries")
     }
