@@ -1,6 +1,16 @@
 # ImgurPlay
 
+## MVVM Architecture
+This version refactors the code to use the Model-View-ViewModel pattern.  
 
+The VIEW, MODEL, and VIEWMODEL are completely decoupled.
+
+In this app, bindings are created using simple closures, executed when state properties are set reflecting changes in the data models. 
+
+For example, an update to the VIEWMODEL changes a property in the VIEWMODEL associated with a closure that is set by the VIEW.  In this way, VIEW responsibilities are invoked by the VIEWMODEL changes, without the VIEWMODEL knowing anything about the actions that the VIEWMODEL update has triggered.
+
+
+## Project Requirements
 
 ImgurPlay fufills the following requirements: 
 
@@ -40,7 +50,7 @@ pod install
 You can update libraries with.
 
 ```
-pod install
+pod update
 ```
 
 ## Documentation
