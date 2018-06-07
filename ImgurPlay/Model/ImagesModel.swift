@@ -19,6 +19,8 @@ import UIKit
  / ********************************************************************************************************
  */
 
+
+
 var imagesArray: Array<ImgurImage> = []
 
 struct ImgurImage {
@@ -51,7 +53,48 @@ struct ImgurImage {
         self.isActive = false
     }
     
-    
 }
+
+
+
+// closures - when these variables are set, they trigger closures set by the view model, to update itself with model information
+
+public var modelUpdated: Bool = false {
+    didSet {
+        updatedModelClosure?()
+    }
+}
+
+public var updatedModelClosure: (()->())?
+
+
+public var modelEntryThumbnailUpdated: Bool = false {
+    didSet {
+        updatedModelThumbnailClosure?()
+    }
+}
+
+public var updatedModelThumbnailClosure: (()->())?
+
+
+public var modelEntryImageUpdated: Int? {
+    didSet {
+        updatedModelImageClosure?(modelEntryImageUpdated)
+    }
+}
+
+public var updatedModelImageClosure: ((Int?)->())?
+
+
+public var modelEntryDeleted: Int? {
+    didSet {
+        updatedModelEntryDeletedClosure?(modelEntryDeleted)
+    }
+}
+
+public var updatedModelEntryDeletedClosure: ((Int?)->())?
+
+
+
 
 

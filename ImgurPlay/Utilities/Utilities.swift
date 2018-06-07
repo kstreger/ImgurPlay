@@ -26,14 +26,20 @@ public class Utilities {
 
     // Start, stop, hide and show the activity indicator
     
-    class func startActivityIndicator(_ activityIndicatorView: UIActivityIndicatorView) {
-        activityIndicatorView.isHidden = false
-        activityIndicatorView.startAnimating()
+    class func startActivityIndicator(_ activityIndicatorView: UIActivityIndicatorView?) {
+        guard let activityIndicator = activityIndicatorView else {
+            return
+        }
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
     }
     
-    class func stopActivityIndicator(_ activityIndicatorView: UIActivityIndicatorView) {
-        activityIndicatorView.isHidden = true
-        activityIndicatorView.stopAnimating()
+    class func stopActivityIndicator(_ activityIndicatorView: UIActivityIndicatorView?) {
+        guard let activityIndicator = activityIndicatorView else {
+            return
+        }
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
     }
     
     

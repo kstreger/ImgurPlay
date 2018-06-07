@@ -51,7 +51,7 @@ class ImgurPlayTests: XCTestCase {
     
     
     
-    func testCreateImgurImageEntry() {
+    func testCreateImagesModelEntry() {
         
         // tests that nil values in are handled properly and output = input for non-nil values
         
@@ -77,7 +77,7 @@ class ImgurPlayTests: XCTestCase {
         dataDict["description"] = nil
         
         let imagesModelHelper = ImagesModelHelper()
-        let imgurImage = imagesModelHelper.createImgurImageEntry(imageDict: dataDict)
+        let imgurImage = imagesModelHelper.createImagesModelEntry(responseDict: dataDict)
         
         var testPassed = false
         if imgurImage.link == link && imgurImage.name == name && imgurImage.title == title && imgurImage.type == type && imgurImage.deletehash == deletehash && imgurImage.size == size && imgurImage.datetime == datetime && imgurImage.description == description {
@@ -102,11 +102,10 @@ class ImgurPlayTests: XCTestCase {
         array.append(dataDict)
         var dictResponse = [String: Any?]()
         dictResponse["data"] = array
-        
-        let vc = UIViewController()
+
         let imagesModelHelper = ImagesModelHelper()
         
-        let (_, validation) = imagesModelHelper.validateImageListResponse(dictResponse, vc: vc)
+        let (_, validation) = imagesModelHelper.validateImageListResponse(dictResponse)
         
         XCTAssert(validation == .Success, "Input is not a dictionary containing an array of dictionaries")
     }
@@ -143,6 +142,8 @@ class ImgurPlayTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "User getFullImage to download an image from a URL")
         
+        let imgurAPIHelper = ImgurAPIHelper()
+        
         imgurAPIHelper.getImageLinks() { (response, error) in
             
             // Make sure we didn't get an error status
@@ -155,6 +156,7 @@ class ImgurPlayTests: XCTestCase {
         // Wait until the expectation is fulfilled, with a timeout of 10 seconds.
         wait(for: [expectation], timeout: 10.0)
     }
+    
     
     func testAddImgurAccount() {
         

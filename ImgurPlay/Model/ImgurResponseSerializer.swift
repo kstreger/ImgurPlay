@@ -1,5 +1,5 @@
 //
-//  ImageResponseSerializer.swift
+//  ImgurResponseSerializer.swift
 //  ImgurPlay
 //
 //  Created by Ken Streger on 5/25/18.
@@ -19,7 +19,7 @@ import AeroGearHttp
  / ********************************************************************************************************
 */
 
-public class ImageResponseSerializer: ResponseSerializer {
+public class ImgurResponseSerializer: ResponseSerializer {
 
         // convert the data response to a UIImage
         open var response: (Data, Int) -> Any? = {(data: Data, status: Int) -> (Any?) in

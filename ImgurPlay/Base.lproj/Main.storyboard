@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImgurPlay" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,7 +55,7 @@
                                     <action selector="addImages:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KvE-dD-elS"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="seE-50-v7u">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="seE-50-v7u" customClass="CollectionView" customModule="ImgurPlay" customModuleProvider="target">
                                 <rect key="frame" x="16" y="133" width="802" height="949"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AZ2-Ql-WZb">
@@ -116,12 +116,13 @@
                                         <connections>
                                             <outlet property="cellButtonsContainerView" destination="J9m-zr-ofz" id="fnQ-16-tQe"/>
                                             <outlet property="cellImageView" destination="ORS-rT-Dv9" id="E8o-SA-CLN"/>
+                                            <outlet property="collectionView" destination="seE-50-v7u" id="5L2-T4-wn6"/>
+                                            <outlet property="mainViewController" destination="BYZ-38-t0r" id="cxm-0R-RbJ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="cSZ-1P-KmF"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="lSU-5R-C2n"/>
+                                    <outlet property="mainVC" destination="BYZ-38-t0r" id="f09-KE-aeU"/>
                                 </connections>
                             </collectionView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ref-lU-jTs">
@@ -151,7 +152,6 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicatorView" destination="Ref-lU-jTs" id="iha-R5-PU8"/>
-                        <outlet property="collectionView" destination="seE-50-v7u" id="lVS-3n-ajg"/>
                         <outlet property="imageView" destination="DQo-Gf-u4X" id="yby-kd-hen"/>
                         <outlet property="loginButton" destination="fKD-ZC-Y0S" id="6hc-mt-wvm"/>
                     </connections>

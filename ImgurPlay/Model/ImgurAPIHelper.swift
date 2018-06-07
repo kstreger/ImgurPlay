@@ -60,7 +60,7 @@ public class ImgurAPIHelper {
     public func getThumbnailImage(imageFilename: String, completionHandler: @escaping CompletionBlock) {
         
         let http2 = Http(baseURL: kThumbnailImageBaseURL,sessionConfig: URLSessionConfiguration.default, requestSerializer: HttpRequestSerializer(),
-                         responseSerializer: ImageResponseSerializer() )
+                         responseSerializer: ImgurResponseSerializer() )
         http2.request(method: .get, path: imageFilename,  parameters: nil, completionHandler: completionHandler)
     }
     
@@ -69,7 +69,7 @@ public class ImgurAPIHelper {
     public func getFullImage(imageFilename: String, completionHandler: @escaping CompletionBlock) {
         
         let http2 = Http(baseURL: kFullImageBaseURL,sessionConfig: URLSessionConfiguration.default, requestSerializer: HttpRequestSerializer(),
-                         responseSerializer: ImageResponseSerializer() )
+                         responseSerializer: ImgurResponseSerializer() )
         http2.request(method: .get, path: imageFilename,  parameters: nil, completionHandler: completionHandler)
     }
     
